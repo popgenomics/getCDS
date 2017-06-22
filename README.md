@@ -1,4 +1,4 @@
-# vcf2fasta  
+# getCDS  
 Produces one fasta file for each coding loci (only exons) found in the corresponding gff file.  
 Also produces a txt file containing one line per exons: locus_name, contig_name, first position of exon (1-based), last position of exon, strand (+ or -)  
   
