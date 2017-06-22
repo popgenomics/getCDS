@@ -12,3 +12,7 @@ g++ getCDS.cpp -std=c++17 -O3 -o getCDS
   
 The fasta file is an alignement of one contig for different individuals.  
 The gff file can be the gff produced for the whole genome.  
+  
+Be careful: the produced **txt files** are written in 'std::ios::app (for append) mode'.  
+Running multiple times getCDS with the same fasta input file will overwrite the written fasta output files, but will append informations written in the correspond txt output files  
+
