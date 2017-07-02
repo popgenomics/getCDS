@@ -151,6 +151,8 @@ void treatLine(const std::string & line, const std::vector <std::string> & indSe
 	size_t end(0);
 	char strand;
 
+	std::string exon;
+
 	std::istringstream iss(line);
 	std::string word;
 
@@ -199,7 +201,13 @@ void treatLine(const std::string & line, const std::vector <std::string> & indSe
 			txtFile.open(outputName_txt.c_str(), std::ios::app);
 
 			for(j=0; j<indSequences.size(); ++j){
-				indSequences_tmp[j].append(indSequences[j], start-1, end-start+1);
+				exon = indSequences[j].substr(start-1, end-start+1);
+				if(strand == '+'){
+					//indSequences_tmp[j].append(indSequences[j], start-1, end-start+1);
+					indSequences_tmp[j].append(exon);
+				}else{
+					indSequences_tmp[j].insert(0, exon);
+				}
 				fastaFile << indNames[j] << std::endl;
 				fastaFile << indSequences_tmp[j] << std::endl;
 
